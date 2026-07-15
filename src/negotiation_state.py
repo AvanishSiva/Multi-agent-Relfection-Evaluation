@@ -69,11 +69,24 @@ def get_initial_state(instance_id: int, max_rounds: int, condition: str) -> Nego
 
 
 #Utility Validators
-def compute_joint_score(proposal: dict[str, int], a_values: dict[str, int], b_values: dict[str, int]) -> int:    
+def compute_scores(proposal: dict[str, int], a_values: dict[str, int], b_values: dict[str, int]) -> tuple[int, int]:
     a_score = sum(proposal[item] * a_values[item] for item in proposal)
     b_share = {item: POOL[item] - proposal[item] for item in proposal}
     b_score = sum(b_share[item] * b_values[item] for item in b_share)
+    return a_score, b_score
+
+
+def compute_joint_score(proposal: dict[str, int], a_values: dict[str, int], b_values: dict[str, int]) -> int:
+    a_score, b_score = compute_scores(proposal, a_values, b_values)
     return a_score + b_score
+
+
+def compute_efficiency(a_score: int, b_score: int, optimal_joint: int) -> float:
+    return (a_score + b_score) / optimal_joint
+
+
+def compute_fairness_gap(a_score: int, b_score: int) -> int:
+    return abs(a_score - b_score)
 
 def find_optimal_joint(instance_id: int) -> int:
     instance = GAME_INSTANCES[instance_id]

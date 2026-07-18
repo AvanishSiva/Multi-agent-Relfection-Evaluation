@@ -1,6 +1,6 @@
 import argparse
 
-from src.graph import build_baseline_graph
+from src.graph import build_graph
 from src.negotiation_state import (
     GAME_INSTANCES,
     compute_efficiency,
@@ -9,9 +9,9 @@ from src.negotiation_state import (
 )
 
 
-def run(instance_id: int, max_rounds: int) -> None:
-    app = build_baseline_graph()
-    initial_state = get_initial_state(instance_id=instance_id, max_rounds=max_rounds, condition="baseline")
+def run(instance_id: int, max_rounds: int, condition: str) -> None:
+    app = build_graph()
+    initial_state = get_initial_state(instance_id=instance_id, max_rounds=max_rounds, condition=condition)
     final_state = app.invoke(initial_state, config={"recursion_limit": 50})
 
     print(f"=== Instance {instance_id}: {GAME_INSTANCES[instance_id]['description']} ===\n")
@@ -31,11 +31,15 @@ def run(instance_id: int, max_rounds: int) -> None:
     print(f"Efficiency: {compute_efficiency(a_score, b_score, optimal_joint):.2f}")
     print(f"Fairness gap: {compute_fairness_gap(a_score, b_score)}")
 
+    print(f"\nA belief history: {final_state['a_belief_history']}")
+    print(f"B belief history: {final_state['b_belief_history']}")
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run one baseline negotiation game.")
+    parser = argparse.ArgumentParser(description="Run one negotiation game.")
     parser.add_argument("--instance", type=int, default=1, choices=[1, 2, 3], help="Game instance (1=integrative, 2=mixed, 3=competitive)")
     parser.add_argument("--max-rounds", type=int, default=8)
+    parser.add_argument("--condition", type=str, default="baseline", choices=["baseline", "reflection", "control"])
     args = parser.parse_args()
 
-    run(instance_id=args.instance, max_rounds=args.max_rounds)
+    run(instance_id=args.instance, max_rounds=args.max_rounds, condition=args.condition)

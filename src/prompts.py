@@ -45,6 +45,11 @@ def build_agent_prompt(state: dict, agent: str) -> str:
     own_values = state["a_values"] if agent == "A" else state["b_values"]
     pool = state["pool"]
 
+    belief_line = ""
+    if state["condition"] != "baseline":
+        own_belief = state["a_belief"] if agent == "A" else state["b_belief"]
+        belief_line = f"\nYour current belief about Agent {opponent}'s values (from your reflection): {own_belief}\n"
+
     return f"""You are Agent {agent} negotiating with Agent {opponent} over how to split a pool of items. All items must be allocated — nothing is left over, nothing is split in half.
 
 Pool: {_format_pool(pool)}
@@ -55,7 +60,7 @@ You do NOT know Agent {opponent}'s values.
 Round {state['round_count'] + 1} of {state['max_rounds']}.
 
 Standing proposal: {_format_standing_proposal(state)}
-
+{belief_line}
 Conversation so far:
 {_format_transcript(state['transcript'])}
 

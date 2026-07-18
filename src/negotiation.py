@@ -4,6 +4,7 @@ ITEMS = ["book", "hat", "ball"]
 
 _MESSAGE_RE = re.compile(r"MESSAGE\s*:\s*", re.IGNORECASE)
 _ACTION_RE = re.compile(r"ACTION\s*:\s*", re.IGNORECASE)
+_BELIEF_RE = re.compile(r"BELIEF\s*:\s*", re.IGNORECASE)
 _STRIP_CHARS = " *\n\t"
 
 
@@ -69,3 +70,16 @@ def parse_action(
         "proposal": previous_proposal or _even_split(pool),
         "parse_ok": False,
     }
+
+
+def parse_belief(output: str, previous_belief: str) -> dict:
+    # Never raises: malformed reflection output falls back to the previous belief with parse_ok=False.
+    match = _BELIEF_RE.search(output)
+    if match is None:
+        return {"belief": previous_belief, "parse_ok": False}
+
+    belief = output[match.end():].strip(_STRIP_CHARS)
+    if not belief:
+        return {"belief": previous_belief, "parse_ok": False}
+
+    return {"belief": belief, "parse_ok": True}

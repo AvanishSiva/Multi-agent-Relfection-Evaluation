@@ -1,6 +1,7 @@
 import argparse
 
 from src.graph import build_graph
+from src.metrics import compute_parse_success_rate, compute_position_stability
 from src.negotiation_state import (
     GAME_INSTANCES,
     compute_efficiency,
@@ -33,6 +34,13 @@ def run(instance_id: int, max_rounds: int, condition: str) -> None:
 
     print(f"\nA belief history: {final_state['a_belief_history']}")
     print(f"B belief history: {final_state['b_belief_history']}")
+
+    transcript = final_state["transcript"]
+    stability_a = compute_position_stability(transcript, "A")
+    stability_b = compute_position_stability(transcript, "B")
+    print(f"\nParse success rate: {compute_parse_success_rate(transcript):.2f}")
+    print(f"Position stability — A: {stability_a['stability_score']:.2f} ({stability_a['contradiction_count']} contradiction(s))")
+    print(f"Position stability — B: {stability_b['stability_score']:.2f} ({stability_b['contradiction_count']} contradiction(s))")
 
 
 if __name__ == "__main__":

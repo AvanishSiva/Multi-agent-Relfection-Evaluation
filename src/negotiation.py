@@ -73,7 +73,6 @@ def parse_action(
 
 
 def parse_belief(output: str, previous_belief: str) -> dict:
-    # Never raises: malformed reflection output falls back to the previous belief with parse_ok=False.
     match = _BELIEF_RE.search(output)
     if match is None:
         return {"belief": previous_belief, "parse_ok": False}

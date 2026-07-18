@@ -70,3 +70,51 @@ Rules:
 - Each value must be a whole number: 0-{pool['book']} for book, 0-{pool['hat']} for hat, 0-{pool['ball']} for ball.
 - Use ACTION: ACCEPT only if there is a standing proposal you want to accept.
 """
+
+
+def build_reflection_prompt(state: dict, agent: str) -> str:
+    opponent = "B" if agent == "A" else "A"
+    own_values = state["a_values"] if agent == "A" else state["b_values"]
+    own_belief = state["a_belief"] if agent == "A" else state["b_belief"]
+    pool = state["pool"]
+
+    return f"""You are Agent {agent}, about to negotiate again with Agent {opponent}. Before you act, reflect privately — Agent {opponent} will never see this reflection.
+
+Pool: {_format_pool(pool)}
+Your private values: {_format_values(own_values)}
+
+Your current belief about Agent {opponent}'s values: {own_belief}
+
+Standing proposal: {_format_standing_proposal(state)}
+
+Conversation so far:
+{_format_transcript(state['transcript'])}
+
+Work through these three steps silently, then report only your conclusion:
+1. Belief consistency — does your current belief above contradict what Agent {opponent}'s own offers and messages have actually shown? If so, why did you believe it, and what should change?
+2. Opponent model update — based on the latest offers and messages, what do they reveal about what Agent {opponent} values most and least?
+3. Win-win search — is there a split neither of you has proposed yet that could score higher for both sides than the standing proposal?
+
+Respond with exactly one line, in this exact format:
+BELIEF: <one paragraph — your updated belief about Agent {opponent}'s values and priorities, noting any change from before and why, plus any win-win idea you found>
+"""
+
+
+def build_control_prompt(state: dict, agent: str) -> str:
+    opponent = "B" if agent == "A" else "A"
+    pool = state["pool"]
+
+    return f"""You are Agent {agent}, about to negotiate again with Agent {opponent}.
+
+Pool: {_format_pool(pool)}
+
+Standing proposal: {_format_standing_proposal(state)}
+
+Conversation so far:
+{_format_transcript(state['transcript'])}
+
+Do not analyze anything and do not update any belief about Agent {opponent}. Simply restate the current situation in your own words.
+
+Respond with exactly one line, in this exact format:
+BELIEF: <one paragraph restating the pool, the standing proposal, and the last message or two, in your own words — no analysis, no inference about values>
+"""

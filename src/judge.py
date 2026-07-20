@@ -1,6 +1,9 @@
 import re
 
+from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
+
+load_dotenv()
 
 MODEL = "qwen2.5:14b"
 # Lower temperature than the negotiation LLM (0.7) — judging should be consistent, not creative.

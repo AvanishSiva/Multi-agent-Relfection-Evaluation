@@ -1,9 +1,12 @@
+from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
 from langgraph.graph import StateGraph, START, END
 
 from src.negotiation import parse_action, parse_belief
 from src.negotiation_state import NegotiationState, compute_scores
 from src.prompts import build_agent_prompt, build_control_prompt, build_reflection_prompt
+
+load_dotenv()
 
 MODEL = "qwen2.5:14b"
 llm = ChatOllama(model=MODEL, temperature=0.7, max_tokens=300)

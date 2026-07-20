@@ -1,6 +1,7 @@
 import argparse
 
 from src.graph import build_graph
+from src.judge import judge_belief_consistency, judge_dialogue_coherence
 from src.metrics import compute_parse_success_rate, compute_position_stability
 from src.negotiation_state import (
     GAME_INSTANCES,
@@ -10,10 +11,14 @@ from src.negotiation_state import (
 )
 
 
-def run(instance_id: int, max_rounds: int, condition: str) -> None:
+def play_game(instance_id: int, max_rounds: int, condition: str) -> dict:
     app = build_graph()
     initial_state = get_initial_state(instance_id=instance_id, max_rounds=max_rounds, condition=condition)
-    final_state = app.invoke(initial_state, config={"recursion_limit": 50})
+    return app.invoke(initial_state, config={"recursion_limit": 50})
+
+
+def run(instance_id: int, max_rounds: int, condition: str) -> None:
+    final_state = play_game(instance_id=instance_id, max_rounds=max_rounds, condition=condition)
 
     print(f"=== Instance {instance_id}: {GAME_INSTANCES[instance_id]['description']} ===\n")
     for entry in final_state["transcript"]:
@@ -41,6 +46,15 @@ def run(instance_id: int, max_rounds: int, condition: str) -> None:
     print(f"\nParse success rate: {compute_parse_success_rate(transcript):.2f}")
     print(f"Position stability — A: {stability_a['stability_score']:.2f} ({stability_a['contradiction_count']} contradiction(s))")
     print(f"Position stability — B: {stability_b['stability_score']:.2f} ({stability_b['contradiction_count']} contradiction(s))")
+
+    judge_belief_a = judge_belief_consistency(final_state["a_belief_history"], "A")
+    judge_belief_b = judge_belief_consistency(final_state["b_belief_history"], "B")
+    judge_coherence_a = judge_dialogue_coherence(transcript, "A")
+    judge_coherence_b = judge_dialogue_coherence(transcript, "B")
+    print(f"\nJudge — belief consistency A: {judge_belief_a['score']}  ({judge_belief_a['reasoning']})")
+    print(f"Judge — belief consistency B: {judge_belief_b['score']}  ({judge_belief_b['reasoning']})")
+    print(f"Judge — dialogue coherence A: {judge_coherence_a['score']}  ({judge_coherence_a['reasoning']})")
+    print(f"Judge — dialogue coherence B: {judge_coherence_b['score']}  ({judge_coherence_b['reasoning']})")
 
 
 if __name__ == "__main__":

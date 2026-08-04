@@ -7,7 +7,9 @@ load_dotenv()
 
 MODEL = "qwen2.5:14b"
 # Lower temperature than the negotiation LLM (0.7) — judging should be consistent, not creative.
-judge_llm = ChatOllama(model=MODEL, temperature=0.2, max_tokens=200)
+# Fixed seed is intentional here (unlike the negotiation LLM): the judge should score the same
+# transcript the same way every time, not add its own sampling noise on top of what it's scoring.
+judge_llm = ChatOllama(model=MODEL, temperature=0.2, top_p=0.9, top_k=40, seed=42, max_tokens=200)
 
 _SCORE_RE = re.compile(r"SCORE\s*:\s*", re.IGNORECASE)
 _REASONING_RE = re.compile(r"REASONING\s*:\s*", re.IGNORECASE)

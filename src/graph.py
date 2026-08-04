@@ -9,7 +9,7 @@ from src.prompts import build_agent_prompt, build_control_prompt, build_reflecti
 load_dotenv()
 
 MODEL = "qwen2.5:14b"
-llm = ChatOllama(model=MODEL, temperature=0.7, max_tokens=300)
+llm = ChatOllama(model=MODEL, temperature=0.7, top_p=0.9, top_k=40, max_tokens=300)
 
 
 def _propose(state: dict, agent: str) -> dict:

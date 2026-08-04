@@ -14,6 +14,8 @@ class NegotiationState(TypedDict):
     b_belief : str
     a_belief_history : list[str] #Agent A's belief history
     b_belief_history : list[str] #Agent B's belief history
+    a_belief_parse_ok : list[bool] #Whether each of A's reflect/control outputs parsed cleanly
+    b_belief_parse_ok : list[bool] #Whether each of B's reflect/control outputs parsed cleanly
     transcript : list[dict] #  Each entry: {round, agent, message, action}
     accepted : bool # Whether the negotiation has been accepted
     final_allocation : dict[str, int] | None # Final allocation of items if accepted
@@ -60,6 +62,8 @@ def get_initial_state(instance_id: int, max_rounds: int, condition: str) -> Nego
         b_belief="UNKNOWN",
         a_belief_history=[],
         b_belief_history=[],
+        a_belief_parse_ok=[],
+        b_belief_parse_ok=[],
         transcript=[],
         accepted=False,
         final_allocation=None,

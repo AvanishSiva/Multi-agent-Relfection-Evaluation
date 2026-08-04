@@ -2,7 +2,7 @@ import argparse
 
 from src.graph import build_graph
 from src.judge import judge_belief_consistency, judge_dialogue_coherence
-from src.metrics import compute_parse_success_rate, compute_position_stability
+from src.metrics import compute_belief_parse_success_rate, compute_parse_success_rate, compute_position_stability
 from src.negotiation_state import (
     GAME_INSTANCES,
     compute_efficiency,
@@ -43,7 +43,10 @@ def run(instance_id: int, max_rounds: int, condition: str) -> None:
     transcript = final_state["transcript"]
     stability_a = compute_position_stability(transcript, "A")
     stability_b = compute_position_stability(transcript, "B")
+    belief_parse_rate_a = compute_belief_parse_success_rate(final_state["a_belief_parse_ok"])
+    belief_parse_rate_b = compute_belief_parse_success_rate(final_state["b_belief_parse_ok"])
     print(f"\nParse success rate: {compute_parse_success_rate(transcript):.2f}")
+    print(f"Belief parse success rate — A: {belief_parse_rate_a:.2f}  |  B: {belief_parse_rate_b:.2f}")
     print(f"Position stability — A: {stability_a['stability_score']:.2f} ({stability_a['contradiction_count']} contradiction(s))")
     print(f"Position stability — B: {stability_b['stability_score']:.2f} ({stability_b['contradiction_count']} contradiction(s))")
 

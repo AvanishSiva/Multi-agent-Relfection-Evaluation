@@ -6,6 +6,7 @@ from datetime import datetime
 from src.judge import judge_belief_consistency, judge_dialogue_coherence
 from src.metrics import (
     compute_avg_rounds_to_deal,
+    compute_belief_parse_success_rate,
     compute_deal_rate,
     compute_parse_success_rate,
     compute_position_stability,
@@ -41,6 +42,8 @@ def run_one(instance_id: int, condition: str, max_rounds: int, repeat: int) -> d
         "efficiency": compute_efficiency(a_score, b_score, optimal_joint),
         "fairness_gap": compute_fairness_gap(a_score, b_score),
         "parse_success_rate": compute_parse_success_rate(transcript),
+        "belief_parse_success_rate_a": compute_belief_parse_success_rate(final_state["a_belief_parse_ok"]),
+        "belief_parse_success_rate_b": compute_belief_parse_success_rate(final_state["b_belief_parse_ok"]),
         "position_stability_a": stability_a["stability_score"],
         "position_stability_b": stability_b["stability_score"],
         "contradiction_count_a": stability_a["contradiction_count"],
@@ -95,6 +98,10 @@ def summarize(results: list[dict]) -> dict:
                 "avg_fairness_gap": sum(r["fairness_gap"] for r in subset) / len(subset),
                 "avg_judge_belief_consistency": _avg_non_none(judge_belief_scores),
                 "avg_judge_coherence": _avg_non_none(judge_coherence_scores),
+                "avg_belief_parse_success_rate": _avg_non_none(
+                    [r["belief_parse_success_rate_a"] for r in subset] +
+                    [r["belief_parse_success_rate_b"] for r in subset]
+                ),
             }
     return summary
 

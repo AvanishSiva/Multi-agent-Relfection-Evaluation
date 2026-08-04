@@ -37,6 +37,16 @@ def compute_parse_success_rate(transcript: list[dict], agent: str | None = None)
     return successes / len(entries)
 
 
+def compute_belief_parse_success_rate(belief_parse_ok: list[bool]) -> float:
+    # Companion to compute_parse_success_rate, but for reflect/control outputs
+    # rather than propose/accept outputs. Empty history (e.g. baseline, which
+    # never reflects) defaults to 1.0, matching compute_parse_success_rate's
+    # convention for "nothing to fail."
+    if not belief_parse_ok:
+        return 1.0
+    return sum(belief_parse_ok) / len(belief_parse_ok)
+
+
 def compute_deal_rate(runs: list[dict]) -> float:
     if not runs:
         return 0.0

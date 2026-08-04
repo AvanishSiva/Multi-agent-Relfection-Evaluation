@@ -41,9 +41,7 @@ def a_propose(state: dict) -> dict:
 
 
 def b_propose(state: dict) -> dict:
-    update = _propose(state, "B")
-    update["round_count"] = state["round_count"] + 1
-    return update
+    return _propose(state, "B")
 
 
 def _reflect(state: dict, agent: str) -> dict:
@@ -55,11 +53,13 @@ def _reflect(state: dict, agent: str) -> dict:
     output = llm.invoke(prompt).content
     belief_key = "a_belief" if agent == "A" else "b_belief"
     history_key = "a_belief_history" if agent == "A" else "b_belief_history"
+    parse_ok_key = "a_belief_parse_ok" if agent == "A" else "b_belief_parse_ok"
     result = parse_belief(output, state[belief_key])
 
     return {
         belief_key: result["belief"],
         history_key: state[history_key] + [result["belief"]],
+        parse_ok_key: state[parse_ok_key] + [result["parse_ok"]],
     }
 
 
@@ -76,23 +76,29 @@ def round_start(state: dict) -> dict:
 
 
 def evaluate(state: dict) -> dict:
+    # Incrementing here (rather than in b_propose) ensures a round is counted
+    # even when A accepts and B's turn — and its would-be increment — is skipped.
+    round_count = state["round_count"] + 1
+
     if state["accepted"]:
         final_allocation = state["current_proposal"]
         a_score, b_score = compute_scores(final_allocation, state["a_values"], state["b_values"])
         return {
+            "round_count": round_count,
             "final_allocation": final_allocation,
             "a_score": a_score,
             "b_score": b_score,
         }
 
-    if state["round_count"] >= state["max_rounds"]:
+    if round_count >= state["max_rounds"]:
         return {
+            "round_count": round_count,
             "final_allocation": None,
             "a_score": 0,
             "b_score": 0,
         }
 
-    return {}
+    return {"round_count": round_count}
 
 
 def keep_going(state: dict) -> str:

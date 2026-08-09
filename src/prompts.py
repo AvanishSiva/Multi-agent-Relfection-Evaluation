@@ -25,7 +25,7 @@ def _format_standing_proposal(state: dict) -> str:
     )
 
 
-def _format_transcript(transcript: list[dict]) -> str:
+def _format_transcript(transcript: list[dict], pool: dict[str, int]) -> str:
     if not transcript:
         return "(No turns yet — you may be the first to speak.)"
 
@@ -35,7 +35,13 @@ def _format_transcript(transcript: list[dict]) -> str:
             action_str = "ACCEPT"
         else:
             proposal = entry["proposal"]
-            action_str = "PROPOSE " + ", ".join(f"{item}_A: {proposal[item]}" for item in ITEMS)
+            a_share = ", ".join(f"{item}: {proposal[item]}" for item in ITEMS)
+            b_share = ", ".join(f"{item}: {pool[item] - proposal[item]}" for item in ITEMS)
+            # Spelled out explicitly (not just "PROPOSE book_A: N, ...") because agents were
+            # observed misreading their own or the opponent's implied share from the raw
+            # book_A/hat_A/ball_A labels alone when reasoning about *past* turns — the standing
+            # proposal was already translated this way; history now matches it for consistency.
+            action_str = f"PROPOSE (Agent A gets: {a_share}; Agent B gets: {b_share})"
         lines.append(f"Round {entry['round']} - Agent {entry['agent']}: {entry['message']} [{action_str}]")
     return "\n".join(lines)
 
@@ -62,7 +68,7 @@ Round {state['round_count'] + 1} of {state['max_rounds']}.
 Standing proposal: {_format_standing_proposal(state)}
 {belief_line}
 Conversation so far:
-{_format_transcript(state['transcript'])}
+{_format_transcript(state['transcript'], pool)}
 
 Respond with exactly two lines, in this exact format:
 MESSAGE: <one or two sentences of reasoning, an offer, or a response>
@@ -93,7 +99,7 @@ Your current belief about Agent {opponent}'s values: {own_belief}
 Standing proposal: {_format_standing_proposal(state)}
 
 Conversation so far:
-{_format_transcript(state['transcript'])}
+{_format_transcript(state['transcript'], pool)}
 
 Work through these three steps silently, then report only your conclusion:
 1. Belief consistency — does your current belief above contradict what Agent {opponent}'s own offers and messages have actually shown? If so, why did you believe it, and what should change?
@@ -116,7 +122,7 @@ Pool: {_format_pool(pool)}
 Standing proposal: {_format_standing_proposal(state)}
 
 Conversation so far:
-{_format_transcript(state['transcript'])}
+{_format_transcript(state['transcript'], pool)}
 
 Do not analyze anything and do not update any belief about Agent {opponent}. Simply restate the current situation in your own words.
 

@@ -3,6 +3,8 @@ import re
 from dotenv import load_dotenv
 from langchain_ollama import ChatOllama
 
+from src.negotiation import ITEMS
+
 load_dotenv()
 
 MODEL = "qwen2.5:14b"
@@ -81,6 +83,33 @@ def judge_belief_consistency(belief_history: list[str], agent: str) -> dict:
         return {"score": None, "reasoning": "Not enough belief history to judge (fewer than 2 entries).", "parse_ok": True}
 
     prompt = build_belief_consistency_judge_prompt(belief_history, agent)
+    output = judge_llm.invoke(prompt).content
+    return parse_judge_output(output)
+
+
+def build_belief_accuracy_judge_prompt(final_belief: str, opponent_values: dict[str, int], agent: str, opponent: str) -> str:
+    values_str = ", ".join(f"{item}: {opponent_values[item]} points each" for item in ITEMS)
+
+    return f"""You are checking Agent {agent}'s final belief about Agent {opponent} against Agent {opponent}'s ACTUAL, ground-truth private values — information Agent {agent} never had access to during the negotiation, but you do.
+
+Agent {opponent}'s true values: {values_str}
+
+Agent {agent}'s final stated belief about Agent {opponent}:
+{final_belief}
+
+Judge how ACCURATELY this belief reflects Agent {opponent}'s true relative priorities among the three item types — not whether the belief is internally consistent with earlier beliefs, only whether it is factually correct about which items Agent {opponent} values most and least.
+
+Respond with exactly two lines, in this exact format:
+SCORE: <a single integer from 1 to 5, where 5 = correctly identifies Agent {opponent}'s highest- and lowest-value items; 1 = backwards or unrelated to Agent {opponent}'s actual priorities>
+REASONING: <one or two sentences explaining the score>
+"""
+
+
+def judge_belief_accuracy(belief_history: list[str], opponent_values: dict[str, int], agent: str, opponent: str) -> dict:
+    if not belief_history:
+        return {"score": None, "reasoning": "No belief history to judge.", "parse_ok": True}
+
+    prompt = build_belief_accuracy_judge_prompt(belief_history[-1], opponent_values, agent, opponent)
     output = judge_llm.invoke(prompt).content
     return parse_judge_output(output)
 

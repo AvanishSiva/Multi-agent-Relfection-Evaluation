@@ -64,13 +64,35 @@ def run_one(instance_id: int, condition: str, max_rounds: int, repeat: int) -> d
     }
 
 
-def run_all(instances: list[int], conditions: list[str], repeats: int, max_rounds: int) -> list[dict]:
-    results = []
+def _load_checkpoint(checkpoint_path: str) -> list[dict]:
+    if checkpoint_path and os.path.exists(checkpoint_path):
+        with open(checkpoint_path) as f:
+            return json.load(f).get("results", [])
+    return []
+
+
+def _save_checkpoint(checkpoint_path: str, results: list[dict]) -> None:
+    if not checkpoint_path:
+        return
+    os.makedirs(os.path.dirname(checkpoint_path) or ".", exist_ok=True)
+    with open(checkpoint_path, "w") as f:
+        json.dump({"results": results}, f, indent=2)
+
+
+def run_all(instances: list[int], conditions: list[str], repeats: int, max_rounds: int, checkpoint_path: str | None = None) -> list[dict]:
+    results = _load_checkpoint(checkpoint_path) if checkpoint_path else []
+    done = {(r["instance"], r["condition"], r["repeat"]) for r in results}
+    if done:
+        print(f"Resuming from checkpoint: {len(done)} games already completed, skipping those.")
+
     for instance_id in instances:
         for condition in conditions:
             for repeat in range(repeats):
+                if (instance_id, condition, repeat) in done:
+                    continue
                 print(f"Running instance={instance_id} condition={condition} repeat={repeat + 1}/{repeats} ...")
                 results.append(run_one(instance_id, condition, max_rounds, repeat))
+                _save_checkpoint(checkpoint_path, results)
     return results
 
 
@@ -115,9 +137,6 @@ def main():
     parser.add_argument("--output", type=str, default=None)
     args = parser.parse_args()
 
-    results = run_all(args.instances, args.conditions, args.repeats, args.max_rounds)
-    summary = summarize(results)
-
     output_path = args.output
     if output_path is None:
         os.makedirs("results", exist_ok=True)
@@ -125,6 +144,9 @@ def main():
         output_path = f"results/experiment_{timestamp}.json"
     else:
         os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+
+    results = run_all(args.instances, args.conditions, args.repeats, args.max_rounds, checkpoint_path=output_path)
+    summary = summarize(results)
 
     with open(output_path, "w") as f:
         json.dump({"results": results, "summary": summary}, f, indent=2)

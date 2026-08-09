@@ -1,0 +1,852 @@
+{
+  "results": [
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 0,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 1,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 2,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 3,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 4,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 5,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 6,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 7,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 8,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "baseline",
+      "repeat": 9,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 0,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A believes that Agent B values hats most highly, followed by balls, but this is incorrect as per the true values provided (Agent B actually values balls highest, then hats, and books last). The belief correctly identifies hats as second-highest value but gets the order of priorities wrong overall.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A but incorrectly believes that balls are also valuable and hats less important, when in fact Agent A values books most and has no value for balls."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 1,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "Agent A correctly identifies that Agent B values balls most highly, but incorrectly assumes books are moderately valued instead of hats, which are actually second in value to Agent B.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A but slightly underestimates the lack of value for balls, missing the precise ranking but capturing the essence of relative values."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 2,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 5,
+      "reasoning_a": "Agent A believes that Agent B values books the most and balls the least, which is completely opposite to Agent B's true values where hats are valued second highest and balls are valued the most. Only the relative value of hats (valued second by both) aligns slightly, but overall the belief is inaccurate.",
+      "reasoning_b": "Agent B accurately identified that Agent A values books most and balls least, which aligns perfectly with Agent A's true valuations."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 3,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 5,
+      "reasoning_a": "Agent A accurately identifies that balls are highly valued by Agent B, but slightly underestimates the value of hats and incorrectly assumes books have no value.",
+      "reasoning_b": "Agent B accurately identified that Agent A values books most highly and has no value for balls, which aligns perfectly with Agent A's true values."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 4,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A correctly identifies that Agent B values balls most but slightly misinterprets the value of hats and books, as they believe hats are less valuable than they actually are to Agent B.",
+      "reasoning_b": "The belief incorrectly ranks books as least valued by Agent A, while balls are actually the least valued. It correctly identifies hats as moderately valued but misrepresents books' value to Agent A."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 5,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "The belief incorrectly assumes hats are highly valued by Agent B, while in reality, balls have the highest value. It correctly identifies books as having low value but misrepresents the relative values of hats and balls.",
+      "reasoning_b": "Agent B correctly identifies that books are valued most highly by Agent A but incorrectly assumes balls are second highest and hats the least, when in fact Agent A values balls the least."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 6,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "Agent A accurately identified that Agent B prioritizes balls the most and did not incorrectly infer preferences for books and hats, aligning perfectly with Agent B's true values.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A but incorrectly assumes some value for hats, while balls are indeed worth nothing to Agent A. The belief partially aligns with the true priorities but misrepresents the neutrality of hats relative to balls."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 7,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A correctly identifies that Agent B values balls most and books least, but slightly underestimates the value difference between hats and books.",
+      "reasoning_b": "Agent B correctly identifies that balls are of no interest to Agent A but incorrectly assesses the value of books and hats, believing books to be less valuable than they actually are and hats to have some positive value when in reality hats are worth even less."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 8,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 5,
+      "reasoning_a": "Agent A accurately identified that Agent B values balls most highly, followed by hats, and then books, which perfectly matches Agent B's true values.",
+      "reasoning_b": "Agent B accurately identified that Agent A values books most highly and balls least, which matches Agent A's true values exactly."
+    },
+    {
+      "instance": 1,
+      "condition": "reflection",
+      "repeat": 9,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "The belief incorrectly suggests that books are highly valued by Agent B, when in fact hats and balls are more valuable according to Agent B's true values. It correctly identifies that balls are most valuable but misrepresents the value of books.",
+      "reasoning_b": "Agent B correctly identifies books as highly valued by Agent A and balls as least valued, but incorrectly assumes hats are more valuable than balls for Agent A when in reality hats have a medium value of 1 point each."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 0,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A correctly guesses that hats are less valuable than balls for Agent B but fails to recognize that books have no value at all, leading to a moderate accuracy.",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A but incorrectly assumes hats and balls have similar values, when in fact Agent A values hats more than balls."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 1,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "The belief accurately reflects that Agent B values balls most, but it incorrectly suggests a lower value for hats compared to books when in reality Agent B values hats (1 point) more than books (0 points).",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A by offering them a book, but fails to recognize that hats are only slightly valuable and balls have no value at all for Agent A."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 2,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A's belief does not accurately reflect Agent B's true values, as it assumes equal value for all items, whereas Agent B actually values balls the most and books the least.",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A but incorrectly assumes hats have some positive value, and fails to recognize that balls are of no value to Agent A."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 3,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief accurately reflects that Agent B values balls most highly (since they keep both balls) and books least (since they are distributed to Agent A), correctly identifying Agent B's true relative priorities.",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A but fails to recognize that hats are moderately valued and balls have no value, leading to an inaccurate representation of the lowest-value items."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 4,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A correctly guesses that balls are high value for Agent B but incorrectly assumes hats have moderate value instead of being highest, and books having no value rather than being neutral.",
+      "reasoning_b": "The belief partially reflects Agent A's true values, as books are correctly identified as high value for Agent A, but it fails to recognize that hats are more valuable than balls and does not account for the fact that Agent A values balls at zero points."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 5,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "Agent A's belief that Agent B values books, hats, and balls equally is inaccurate since Agent B actually values balls most and books least. However, it correctly identifies hats as having some value but does not reflect the true prioritization.",
+      "reasoning_b": "Agent B correctly identifies books as high value for Agent A but incorrectly assumes some value for balls, which Agent A actually values at zero points. Hats are mid-value and not overvalued by Agent B's belief."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 6,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A accurately perceives that Agent B values balls most highly (since they insist on keeping both balls) and books least (offering them away without any compensation in terms of balls).",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A by offering them a book, but fails to recognize that balls have no value to Agent A by including them in the trade. Hats are moderately valued, but not as highly as books according to true values."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 7,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A correctly identifies that Agent B values balls highly but does not fully capture the lower valuation of books compared to hats.",
+      "reasoning_b": "Agent B correctly identifies that Agent A values hats more than books and balls, but does not accurately capture that Agent A values books second most (since books are valued at 4 points each) and least values balls (0 points each)."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 8,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A accurately identified that Agent B values balls the most (expressing openness to adjustments for mutual satisfaction, indicating a high value for balls) and hats more than books, which aligns with the true values where hats are worth 1 point each and books are worth 0 points each.",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A but incorrectly assumes hats have some positive value and misses that balls are completely worthless to Agent A."
+    },
+    {
+      "instance": 1,
+      "condition": "control",
+      "repeat": 9,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "The belief partially reflects Agent B's true values, recognizing that hats are less valuable than balls but does not accurately represent books as being of no value compared to hats and balls.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A, but incorrectly assumes hats have some value when in fact they are worth less than balls to Agent A."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 0,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 1,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 2,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 3,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 4,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 5,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 6,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 7,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 8,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "baseline",
+      "repeat": 9,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 0,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A accurately identifies that Agent B values balls most highly, but slightly underestimates the value of hats compared to books, as Agent B actually values hats more than books.",
+      "reasoning_b": "Agent B correctly identifies that Agent A values hats more than books but incorrectly assumes books are valued over balls, which have no value to Agent A according to their true preferences."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 1,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "The belief partially captures that Agent B values balls most, but it incorrectly suggests a preference for variety over specific item types rather than accurately reflecting the true value of hats second and books least.",
+      "reasoning_b": "Agent B correctly identifies that hats are valued highly by Agent A but incorrectly assumes books (which have a higher value than hats according to true values) and balls (valued at zero points) are not distinguished in terms of priority, leading to an inaccurate overall ranking."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 2,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "The belief slightly misrepresents Agent B's true values, as it suggests a balanced distribution rather than a preference for balls and hats over books. While it acknowledges that Agent B prefers balance, it does not accurately reflect the highest value placed on hats and balls.",
+      "reasoning_b": "Agent B correctly identifies that Agent A values books most but incorrectly assumes balls are of little value when in fact they are valued least, though this mistake is minor as it still aligns with prioritizing hats appropriately."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 3,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "Agent A correctly identifies that balls are most valuable to Agent B but incorrectly believes books are second most valued instead of hats, which are actually worth more than books according to Agent B's true values.",
+      "reasoning_b": "Agent B correctly identifies books as most valuable to Agent A but overestimates the value of hats compared to balls, which are actually valued at zero points by Agent A."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 4,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A correctly identifies that Agent B values balls most, but incorrectly assumes a balanced distribution for books and hats when in fact Agent B values hats second most after balls.",
+      "reasoning_b": "Agent B correctly identifies that hats are valued more than balls but incorrectly believes hats are preferred over books, and fails to recognize that books are valued higher than hats according to Agent A's true values."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 5,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "Agent A correctly identifies that balls are most valuable to Agent B but slightly underestimates the value of hats compared to books, leading to a near-perfect assessment.",
+      "reasoning_b": "Agent B correctly identifies books as the most valuable item for Agent A but slightly misinterprets the value of hats and balls, thinking hats are second in priority when they actually have no value to Agent A."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 6,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "The belief incorrectly suggests that Agent B prioritizes fairness over item value, but it does hint at a preference for hats without accurately reflecting the true values where balls are most valuable and books least.",
+      "reasoning_b": "Agent B correctly identifies books as highly valuable for Agent A but incorrectly assumes a non-zero value for balls, which are actually worth nothing to Agent A."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 7,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A correctly identifies that hats are valuable for Agent B but incorrectly assumes books might be less valued than balls, when in fact Agent B values balls most and books least.",
+      "reasoning_b": "Agent B correctly identifies that hats are most valuable to Agent A but incorrectly assumes books are more valuable than balls, which are actually valued at zero points by Agent A."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 8,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "Agent A believes that Agent B values books and balls equally at 3 points each, which is correct for the ball but incorrect for the book (Agent B actually values a book at 0 points). Additionally, Agent A's belief that Agent B undervalues hats contradicts the truth since Agent B values hats at 2 points each.",
+      "reasoning_b": "Agent B correctly identifies that books are most valuable to Agent A, but incorrectly assumes hats are more valued than balls when in fact Agent A values hats second most and balls least."
+    },
+    {
+      "instance": 2,
+      "condition": "reflection",
+      "repeat": 9,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A correctly identifies that hats are highly valued by Agent B but incorrectly believes balls have little value, when in fact they are the most valuable item for Agent B.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A but overestimates their value, while hats are moderately valued and balls are of little interest, which aligns with the truth but does not capture the exact points assigned."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 0,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A\u2019s belief does not accurately reflect Agent B's true values, as it assumes an even split without considering the points system where hats and balls are more valuable than books. However, it partially aligns by recognizing symmetry in item allocation, though missing the nuanced value differences.",
+      "reasoning_b": "Agent B correctly identifies that books are valuable for Agent A but incorrectly assumes hats have a higher value than balls, which are actually worthless to Agent A according to true values."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 1,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A accurately identified that Agent B values hats more than books but less than balls, which aligns with the true values where hats are worth 2 points each and balls are worth 3 points each.",
+      "reasoning_b": "Agent B correctly identifies that Agent A values books more than hats, but fails to recognize that balls are of no value to Agent A, leading to an inaccurate representation of the lowest-value item."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 2,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief suggests that hats and balls are equally valued by Agent B, which is correct for balls but not for hats (Agent B actually values balls more than hats). It also correctly identifies books as having lower value compared to both.",
+      "reasoning_b": "Agent B correctly guesses that books are highly valued by Agent A since they proposed taking both, but incorrectly assumes a similar valuation for hats and balls when in reality hats have some value to Agent A while balls have none."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 3,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A's belief does not reflect the true relative values of Agent B, as it assumes equal value for all items rather than identifying the correct hierarchy (ball > hat > book).",
+      "reasoning_b": "Agent B's belief that each item is equally valued in an even split does not reflect Agent A's true values, but it correctly identifies all items as having some positive value for Agent A. However, it fails to recognize the differential valuation between books (highest) and balls (lowest)."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 4,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A's belief does not accurately reflect Agent B's true values, as it assumes equal value for all items in the negotiation pool, whereas Agent B actually values balls most and books least.",
+      "reasoning_b": "Agent B correctly guesses that books are high value for Agent A but incorrectly assumes hats have equal or higher value than balls, when in fact Agent A values hats more than balls but considers balls to be of no value."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 5,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief indicates that Agent B values balls most by proposing to take all of them, but it does not accurately reflect the true value hierarchy since hats are actually more valuable to Agent B than books according to their true values.",
+      "reasoning_b": "The belief partially reflects Agent A's true values, recognizing books as high value but incorrectly assuming hats are also valuable and undervaluing balls completely."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 6,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "Agent A correctly identifies that Agent B values hats more than books, but the belief does not fully capture that balls are valued higher than hats by Agent B.",
+      "reasoning_b": "Agent B correctly identifies that books are most valuable to Agent A but incorrectly assumes hats have some positive value and balls no value at all, when in fact hats are second priority and balls are of zero value."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 7,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief partially reflects Agent B's true values, as hats are undervalued compared to balls but correctly identifies books as having low value for Agent B. However, it fails to capture that balls are actually the highest-value items for Agent B.",
+      "reasoning_b": "Agent B correctly identifies books as high value for Agent A but fails to recognize that hats are more valuable than books and balls have no value at all."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 8,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A's belief somewhat aligns with Agent B's true values, as hats are correctly identified as high value since Agent B keeps multiple hats. However, it incorrectly suggests books might be of higher value than balls, which contradicts Agent B's actual preference for balls over books.",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A but incorrectly suggests hats and balls have equal value, when in fact Agent A values hats more than balls."
+    },
+    {
+      "instance": 2,
+      "condition": "control",
+      "repeat": 9,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief suggests an equal value for all items, which is inaccurate since Agent B actually values balls most and books least. However, it correctly implies that hats are valued more than books but less than balls, capturing some of the true relative priorities inaccurately.",
+      "reasoning_b": "Agent B correctly guesses that books are high value for Agent A but incorrectly assumes hats might be neutral or low value, and fails to recognize balls as having no value at all."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 0,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 1,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 2,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 3,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 4,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 5,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 6,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 7,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 8,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "baseline",
+      "repeat": 9,
+      "belief_accuracy_a": null,
+      "belief_accuracy_b": null,
+      "reasoning_a": "No belief history to judge.",
+      "reasoning_b": "No belief history to judge."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 0,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "The belief correctly identifies that hats are valued highly by Agent B but incorrectly suggests increasing utility for balls, which Agent B actually values least. Books have a moderate value according to the truth, not low as suggested in the belief.",
+      "reasoning_b": "Agent B correctly identifies that books are most valuable to Agent A, but incorrectly assumes hats have some value rather than being neutral, and fails to recognize that balls are least valued."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 1,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A accurately identified that Agent B values books the most and balls the least, which aligns perfectly with Agent B's true values.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A but incorrectly believes hats are more valuable than balls, which are actually worth nothing to Agent A according to true values."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 2,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "The belief correctly identifies books as highly valued by Agent B but incorrectly assumes hats have some value and balls are negotiable, which is partially aligned with the truth but not fully accurate.",
+      "reasoning_b": "Agent B correctly identifies that Agent A values books less than hats, but incorrectly believes that Agent A values balls more than books when in reality, Agent A values books much higher than balls."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 3,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 5,
+      "reasoning_a": "The belief incorrectly ranks Agent B's values, placing hats as most valuable and books as least valuable when in fact Agent B values books highest and balls lowest.",
+      "reasoning_b": "Agent B accurately captures that Agent A values books most highly and hats second, with balls being of no value, which perfectly matches Agent A's true values."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 4,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief incorrectly assumes hats are the most valuable for Agent B, while books actually hold the highest value according to true preferences. Balls are correctly identified as having no value, but the ranking of hats and books is inaccurate.",
+      "reasoning_b": "Agent B correctly identifies books as highly valued by Agent A but incorrectly assumes hats have some value, while Agent A actually values hats very low and balls the least."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 5,
+      "belief_accuracy_a": 4,
+      "belief_accuracy_b": 4,
+      "reasoning_a": "Agent A correctly identifies books as highly valued by Agent B but incorrectly assumes hats are less valued than balls, when in fact Agent B values hats least.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A but incorrectly assumes hats are more valuable than balls, which are actually of equal lowest value."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 6,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A accurately identified that Agent B values books the most and balls the least, which aligns perfectly with Agent B's true values.",
+      "reasoning_b": "Agent B believes hats are most valuable to Agent A, but actually books are most valuable (4 points each), followed by hats (1 point each), and balls are worth nothing. The belief correctly identifies that hats have some value but overestimates it compared to books, which are truly the highest priority for Agent A."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 7,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 5,
+      "reasoning_a": "Agent A accurately identified that Agent B values books most highly and does not value balls at all, which aligns perfectly with Agent B's true values.",
+      "reasoning_b": "Agent B accurately identified that Agent A values books most highly, hats second, and balls least, which perfectly matches Agent A's true values."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 8,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief slightly misrepresents Agent B's true values, overestimating the value of hats while correctly noting that books are valued but underestimating their significance compared to hats. Balls are correctly identified as having no value for Agent B.",
+      "reasoning_b": "Agent B correctly identifies that books are most valuable to Agent A but incorrectly assumes hats have some utility, while balls are actually valued at zero points."
+    },
+    {
+      "instance": 3,
+      "condition": "reflection",
+      "repeat": 9,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A correctly identifies that books are highly valued by Agent B but incorrectly assumes hats have some value, while balls are indeed worth nothing, leading to a partially accurate understanding.",
+      "reasoning_b": "Agent B correctly identifies that hats are valued more than books, but incorrectly believes books have higher value than balls when in fact Agent A values books over balls and assigns no points to balls."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 0,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief somewhat aligns with Agent B's true values, recognizing a low value for balls but incorrectly assuming hats have some worth rather than being of minimal interest.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A, but fails to recognize that balls have no value to Agent A, leading to a moderate accuracy score."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 1,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A accurately identified that Agent B values books most (since Agent B kept both remaining books for themselves) and balls least (Agent B got all the balls), correctly reflecting Agent B's true priorities.",
+      "reasoning_b": "Agent B correctly identifies that books are valuable to Agent A but incorrectly assumes hats have some value while ignoring balls' lack of value, leading to an inaccurate reflection of Agent A's true priorities."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 2,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief partially reflects Agent B's true values, as books are correctly identified as high value, but it incorrectly suggests that balls have some value when they actually have none. Hats are also undervalued according to Agent B's true priorities.",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A but fails to recognize that hats are more valuable than balls, leading to a moderate accuracy."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 3,
+      "belief_accuracy_a": 5,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A accurately identified that Agent B values books most (since they proposed an even split but ended up with fewer books), hats moderately, and balls least.",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A but incorrectly assumes hats have some value, and fails to recognize balls as having no value at all."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 4,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A's belief does not reflect the true relative values of Agent B, as it fails to indicate that books are most valuable and balls have no value for Agent B.",
+      "reasoning_b": "Agent B's belief does not accurately reflect Agent A's true values, as it suggests equal value for all items, whereas in reality, books are highly valued by Agent A and balls have no value at all."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 5,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A believes that Agent B values books and hats more than balls, which is correct since balls have no value for Agent B. However, it does not accurately reflect that hats are valued much less by Agent B compared to books.",
+      "reasoning_b": "Agent B correctly identifies that books are high value for Agent A by proposing an equal split, but fails to recognize that hats are more valuable than books and balls have no value at all."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 6,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "Agent A believes in an even distribution of items, but this does not reflect that books are highly valued by Agent B and balls have no value at all. The belief correctly identifies hats as moderately valuable but fails to capture the true extremes of Agent B's preferences.",
+      "reasoning_b": "Agent B correctly identifies that books are highly valued by Agent A but incorrectly assumes balls have some value since Agent A took one, not understanding balls are actually worthless to them."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 7,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 5,
+      "reasoning_a": "Agent A correctly identifies that books are highly valued by Agent B but incorrectly assumes a lower value for hats and balls compared to the true values, where hats have some positive value but balls are not valued at all.",
+      "reasoning_b": "Agent B accurately identified that Agent A values books most and hats second, while balls are valued least, perfectly matching Agent A's true values."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 8,
+      "belief_accuracy_a": 3,
+      "belief_accuracy_b": 3,
+      "reasoning_a": "The belief somewhat aligns with Agent B's true values, as it correctly identifies books as high value but incorrectly assumes hats have some value and balls are negligible. However, it does not accurately reflect that hats are valued much less than books and balls are not valued at all.",
+      "reasoning_b": "Agent B correctly guesses that books are high value for Agent A but incorrectly assumes hats have some positive value and balls no negative value, leading to an inaccurate reflection of the true prioritization."
+    },
+    {
+      "instance": 3,
+      "condition": "control",
+      "repeat": 9,
+      "belief_accuracy_a": 2,
+      "belief_accuracy_b": 2,
+      "reasoning_a": "Agent A's belief does not reflect the true relative values of books, hats, and balls according to Agent B's preferences. While it correctly identifies that books are valuable (since they have a high point value), it fails to capture that hats are moderately valued compared to worthless balls, leading to an inaccurate representation of priorities.",
+      "reasoning_b": "Agent B's belief does not accurately reflect Agent A's true values, as it suggests equal value for all items when in fact books are highly valued and balls have no value to Agent A."
+    }
+  ],
+  "summary": {
+    "instance_1_baseline": {
+      "n_scored": 0,
+      "avg_belief_accuracy": null
+    },
+    "instance_1_control": {
+      "n_scored": 20,
+      "avg_belief_accuracy": 3.35
+    },
+    "instance_1_reflection": {
+      "n_scored": 20,
+      "avg_belief_accuracy": 3.45
+    },
+    "instance_2_baseline": {
+      "n_scored": 0,
+      "avg_belief_accuracy": null
+    },
+    "instance_2_control": {
+      "n_scored": 20,
+      "avg_belief_accuracy": 2.85
+    },
+    "instance_2_reflection": {
+      "n_scored": 20,
+      "avg_belief_accuracy": 3.15
+    },
+    "instance_3_baseline": {
+      "n_scored": 0,
+      "avg_belief_accuracy": null
+    },
+    "instance_3_control": {
+      "n_scored": 20,
+      "avg_belief_accuracy": 2.9
+    },
+    "instance_3_reflection": {
+      "n_scored": 20,
+      "avg_belief_accuracy": 3.3
+    }
+  }
+}

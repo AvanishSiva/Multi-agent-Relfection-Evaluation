@@ -37,10 +37,6 @@ def _format_transcript(transcript: list[dict], pool: dict[str, int]) -> str:
             proposal = entry["proposal"]
             a_share = ", ".join(f"{item}: {proposal[item]}" for item in ITEMS)
             b_share = ", ".join(f"{item}: {pool[item] - proposal[item]}" for item in ITEMS)
-            # Spelled out explicitly (not just "PROPOSE book_A: N, ...") because agents were
-            # observed misreading their own or the opponent's implied share from the raw
-            # book_A/hat_A/ball_A labels alone when reasoning about *past* turns — the standing
-            # proposal was already translated this way; history now matches it for consistency.
             action_str = f"PROPOSE (Agent A gets: {a_share}; Agent B gets: {b_share})"
         lines.append(f"Round {entry['round']} - Agent {entry['agent']}: {entry['message']} [{action_str}]")
     return "\n".join(lines)
